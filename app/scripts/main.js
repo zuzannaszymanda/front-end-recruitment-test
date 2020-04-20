@@ -76,4 +76,20 @@
   }
 
   // Your custom JavaScript goes here
+
+  function initBtnClick() {
+    const button = document.querySelector('#overview button');
+    const img = document.querySelector('#overview img');
+    if (!button || !img) {
+      return;
+    }
+
+    button.addEventListener('click', () => {
+      const container = img.parentElement;
+      const newImg = img.cloneNode(true);
+      container.appendChild(newImg);
+    })
+  }
+
+  initBtnClick();
 })();
