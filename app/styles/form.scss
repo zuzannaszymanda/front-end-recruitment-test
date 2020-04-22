@@ -1,0 +1,160 @@
+$secondary: #9b9b9b;
+$primary: #515356;
+$green: #6bd400;
+
+$box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.15);
+
+$font-small: 0.8rem;
+$font-normal: 1rem;
+$font-big: 1.5rem;
+
+@mixin card($color) {
+  background-color: $color;
+  box-shadow: $box-shadow;
+}
+
+@mixin bold() {
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+#checkout {
+  color: black;
+}
+
+#checkout.mdl-layout__tab-panel {
+  background-color: #f2f2f2 !important;
+}
+
+.checkout__header {
+  @include bold;
+  vertical-align: center;
+
+  &--number {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: black;
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    margin-right: 10px;
+  }
+
+  i {
+    margin-left: 10px;
+    font-size: $font-normal;
+    color: $secondary;
+  }
+}
+
+.form__input {
+  @include card(white);
+  padding: 5px 10px;
+
+  label {
+    font-weight: 600;
+    font-size: $font-small;
+    text-transform: capitalize;
+    color: $primary;
+  }
+
+  input,
+  select {
+    font-size: $font-normal;
+    border: none;
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .icon {
+    align-items: center;
+    color: $secondary;
+  }
+}
+
+.submit-button {
+  @extend .flex-row, .align-center, .justify-center;
+  @include card($green);
+  @include bold;
+  border: none;
+  padding: 20px;
+  width: 100%;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  i {
+    font-size: $font-normal;
+    margin-right: 5px;
+  }
+}
+
+.order-card {
+  @include card(white);
+  font-size: $font-small;
+  margin: 8px;
+  padding: 5px;
+  height: calc(100% - 26px);
+  &__section {
+    border: 1px dotted $secondary;
+    border-radius: 2px;
+    height: calc(100% - 2px);
+
+    .mdl-cell {
+      @extend .flex-row, .justify-space-between;
+    }
+
+    .header {
+      @include bold;
+    }
+
+    .price {
+      font-size: $font-big;
+      font-weight: 700;
+    }
+  }
+}
+
+hr.dashed {
+  border-top: 1px dashed $secondary;
+  margin: 1em 8px;
+}
+
+.left-padding {
+  padding-left: 20px;
+}
+
+.no-padding {
+  padding: 0;
+}
+
+// flexbox
+.flex {
+  &-column {
+    display: flex;
+    flex-direction: column;
+  }
+  &-row {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.justify {
+  &-space-between {
+    justify-content: space-between;
+  }
+
+  &-center {
+    justify-content: center;
+  }
+}
+
+.align {
+  &-center {
+    align-items: center;
+  }
+}

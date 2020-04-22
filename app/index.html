@@ -51,6 +51,7 @@
 
     <!-- Your styles -->
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/form.css">
   </head>
   <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
@@ -68,6 +69,7 @@
           <a href="#features" class="mdl-layout__tab">Details</a>
           <a href="#features" class="mdl-layout__tab">Technology</a>
           <a href="#features" class="mdl-layout__tab">FAQ</a>
+          <a href="#checkout" class="mdl-layout__tab">Checkout</a>
           <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent" id="add">
             <i class="material-icons" role="presentation">add</i>
             <span class="visuallyhidden">Add</span>
@@ -228,6 +230,184 @@
             </div>
           </section>
         </div>
+
+        <!-- task 2 -->
+        <div class="mdl-layout__tab-panel" id="checkout">
+          <section class="section--center mdl-grid mdl-grid--no-spacing">
+            <div class="mdl-cell mdl-cell--12-col">
+              <form action="submit">
+                <div class="checkout__header">
+                  <span class="checkout__header--number">1</span>
+                  <span class="checkout__header--title">Personal information</span>
+                </div>
+      
+                <div class="mdl-grid left-padding">
+                  <div class="mdl-cell mdl-cell--8-col">
+                    <div class="mdl-grid no-padding">
+                      <div class="mdl-cell mdl-cell--6-col">
+                        <div class="form__input flex-column">
+                          <label for="firstName">First name</label>
+                          <input
+                            type="text"
+                            name="firstName"
+                            placeholder="Elon"
+                          />
+                        </div>
+                      </div>
+                      <div class="mdl-cell mdl-cell--6-col">
+                        <div class="form__input flex-column">
+                          <label for="lastName">Last name</label>
+                          <input
+                            type="text"
+                            name="lastName"
+                            placeholder="Musk"
+                          />
+                        </div>
+                      </div>
+                      <div class="mdl-cell mdl-cell--12-col">
+                        <div class="form__input flex-column">
+                          <label for="email">Email</label>
+                          <input
+                            type="email"
+                            name="email"
+                            placeholder="elon@spacex.com"
+                          />
+                        </div>
+                      </div>
+                      <div class="mdl-cell mdl-cell--6-col">
+                        <div class="form__input flex-column">
+                          <label for="country">Country</label>
+                          <select name="country">
+                            <option value="usa" selected>United States</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="mdl-cell mdl-cell--6-col">
+                        <div class="form__input flex-column">
+                          <label for="postalCode">Postal code</label>
+                          <input
+                            type="text"
+                            name="postalCode"
+                            placeholder="10001"
+                            maxlength="5"
+                          />
+                        </div>
+                      </div>
+                      <div class="mdl-cell mdl-cell--12-col">
+                        <div class="form__input flex-column">
+                          <label for="phone">Phone number</label>
+                          <input
+                            type="text"
+                            name="phone"
+                            placeholder="(212) 692-93-92"
+                            maxlength="15"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mdl-cell mdl-cell--4-col">
+                    <div class="order-card">
+                      <div class="order-card__section">
+                        <div class="mdl-cell mdl-cell--12-col">
+                          <span class="header">Your order</span>
+                        </div>
+                        <div class="mdl-cell mdl-cell--12-col">
+                          <span>Apple watch sport</span><span>$ 580</span>
+                        </div>
+                        <div class="mdl-cell mdl-cell--12-col">
+                          <span>Modern buckle</span><span>$ 380</span>
+                        </div>
+                        <hr class="dashed" />
+                        <div class="mdl-cell mdl-cell--12-col">
+                          <span>Total purchases</span><span>$ 960.00</span>
+                        </div>
+                        <div class="mdl-cell mdl-cell--12-col">
+                          <span>Estimated tax</span><span>$ 0</span>
+                        </div>
+                        <hr class="dashed" />
+                        <div class="mdl-cell mdl-cell--12-col">
+                          <span>Total</span><span class="price">$ 960</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+      
+                <div class="checkout__header">
+                  <span class="checkout__header--number">2</span>
+                  <span class="checkout__header--title">Payments details</span>
+                  <i class="material-icons">lock</i>
+                </div>
+      
+                <div class="mdl-grid left-padding">
+                  <div class="mdl-cell mdl-cell--8-col">
+                    <div class="mdl-grid no-padding">
+                      <div class="mdl-cell mdl-cell--12-col">
+                        <div class="form__input flex-row justify-space-between">
+                          <div class="flex-column">
+                            <label for="cardNumber">Credit card number</label>
+                            <div>
+                              <input
+                                type="text"
+                                name="cardNumber"
+                                placeholder="0000 - 0000 - 0000 - 0000"
+                              />
+                            </div>
+                          </div>
+                          <div class="icon flex-row">
+                            <i class="material-icons">payment</i>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="mdl-cell mdl-cell--6-col">
+                        <div class="form__input flex-row justify-space-between">
+                          <div class="flex-column">
+                            <label for="securityCode">Security code</label>
+                            <input
+                              type="password"
+                              maxlength="3"
+                              name="securityCode"
+                              placeholder="***"
+                            />
+                          </div>
+                          <div class="icon flex-row">
+                            <i class="material-icons">help</i>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="mdl-cell mdl-cell--6-col">
+                        <div class="form__input flex-column">
+                          <label for="expirationDate">Expiration date</label>
+                          <input
+                            type="text"
+                            maxlength="5"
+                            name="expirationDate"
+                            placeholder="MM/YY"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+      
+                <div class="mdl-grid left-padding">
+                  <div class="mdl-cell mdl-cell--8-col">
+                    <div class="mdl-grid">
+                      <button
+                        type="submit"
+                        class="submit-button mdl-color-text--white">
+                          <i class="material-icons">shopping_cart</i>
+                          Complete purchase
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </section>
+        </div>
+
         <footer class="mdl-mega-footer">
           <div class="mdl-mega-footer--middle-section">
             <div class="mdl-mega-footer--drop-down-section">
