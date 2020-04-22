@@ -1,6 +1,7 @@
 $secondary: #9b9b9b;
 $primary: #515356;
 $green: #6bd400;
+$red: red;
 
 $box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.15);
 
@@ -72,6 +73,13 @@ $font-big: 1.5rem;
     align-items: center;
     color: $secondary;
   }
+
+  &.invalid {
+    border: 1px solid $red;
+    label {
+      color: $red;
+    }
+  }
 }
 
 .submit-button {
@@ -121,6 +129,11 @@ $font-big: 1.5rem;
 hr.dashed {
   border-top: 1px dashed $secondary;
   margin: 1em 8px;
+}
+
+.error-msg {
+  font-size: $font-small;
+  color: $red;
 }
 
 .left-padding {

@@ -92,4 +92,77 @@
   }
 
   initBtnClick();
+
+  // task 3
+  const getParent = (input) => {
+    const parent = input.parentElement;
+    return parent.classList.contains('form__input')
+      ? parent
+      : parent.parentElement;
+  }
+
+  const setFieldValidity = (el, valid) => {
+    el.classList.add(valid ? 'valid' : 'invalid');
+    el.classList.remove(valid ? 'invalid' : 'valid');
+  }
+
+  const getValidationMessage = (input) => {
+    return !input.validity.patternMismatch
+      ? input.validationMessage
+      : 'Value is invalid.';
+  }
+
+  const setValidationMessage = (parent, input, valid) => {
+    const errorSelector = 'error-msg';
+    const container = parent.parentElement;
+    let error = container.querySelector(`.${errorSelector}`);
+
+    if (valid && !!error) {
+      container.removeChild(error);
+      return;
+    } else if (valid && !error) {
+      return;
+    } else if (!valid && !error) {
+      error = document.createElement('span');
+      error.classList.add(errorSelector);
+      container.appendChild(error);
+    }
+    error.textContent = getValidationMessage(input);
+  }
+
+  const validateInput = (input) => {
+    const valid = input.validity.valid;
+    const parent = getParent(input);
+    setFieldValidity(parent, valid);
+    setValidationMessage(parent, input, valid);
+    return valid;
+  }
+
+  function initFormValidation() {
+    const inputs = document.querySelectorAll('#checkout .form__input input, select');
+    const button = document.querySelector('#checkout button[type=submit]');
+    
+    inputs.forEach((el) => {
+      el.addEventListener('blur', () => {
+        validateInput(el);
+      })
+    })
+
+    button.addEventListener('click', (e) => {
+      let validForm = true;
+      inputs.forEach((el) => {
+        const valid = validateInput(el);
+        if (!valid) {
+          validForm = false;
+        }
+      });
+
+      if (validForm) {
+        alert('Form is valid');
+      }
+      e.preventDefault();
+    })
+  }
+
+  initFormValidation();
 })();
